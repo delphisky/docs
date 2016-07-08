@@ -34,8 +34,8 @@ ROOT_URL = http://gogs/
 ```
 
 Moves Gogs' listen port to 80 on the local interface subnet, and tells the Gogs HTTPd that its virtual host is the "gogs" domain.
-This lets you forgo including a port number when browsing, and prevents collision with other localhost services.
-The IP address can be anything in the range `127.0.0.2 - 127.254.254.254`, so long as it's unique to Gogs.
+This lets you forgo including a port number when browsing, and prevents collision with other localhost services.  
+The HTTP_ADDR is gogs linsten IP，this IP can be '0.0.0.0' or anything in the range `127.0.0.2 - 127.254.254.254`, so long as it's unique to Gogs.
 
 To complete that network route, open Notepad.exe as administrator and include the following in `C:\Windows\System32\drivers\etc\hosts`:
 
@@ -52,7 +52,7 @@ In a web browser, generally, `gogs/` in the address bar is sufficient to trigger
 Open a command prompt (`cmd.exe`) as an Administrator. Run the following command:
 
 ```
-C:\> sc create gogs start= auto binPath= ""C:\gogs\gogs.exe" web --config "C:\gogs\conf\app.ini""
+C:\> sc create gogs start= auto binPath= ""C:\gogs\gogs.exe" web --config "C:\gogs\custom\conf\app.ini""
 ```
 
 Ensure there is a space after each `=`. You can choose to add additional Arguments to further modify your service, or modify it manually in the service management console.
